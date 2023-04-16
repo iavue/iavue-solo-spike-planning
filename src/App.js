@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// import './App.css';
+import { HashRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Home from './components/Home/Home';
+import UploadForm from './components/UploadForm/UploadForm';
+import UploadList from './components/UploadList/UploadList';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+
+        <header className="App-header">
+          <h1>Solo Spike</h1>
+          <h2>File Upload</h2>
+        </header>
+
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/uploadForm">Upload a File</Link>
+            </li>
+            <li>
+              <Link to="/uploadList">All Files</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Element specifies the component to render when the url path matches "path" */}
+        <Route path="/" exact element={<Home />} />
+
+        <Route path="/uploadForm" element={<UploadForm />} />
+
+        <Route path="/uploadList" element={<UploadList />} />
+
+      </div>
+    </Router>
   );
 }
 
