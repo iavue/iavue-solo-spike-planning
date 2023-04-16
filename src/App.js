@@ -32,8 +32,9 @@ function App() {
           </ul>
         </nav> */}
         
+        {/* CURRENTLY NOT WORKING AND IDK WHY SO NOT USING IT. I THINK ITS BC I DIDN'T SET UP THE REACT-ROUTER CONFIGURATION CORRECTLY?? */}
         {/* Element specifies the component to render when the url path matches "path" */}
-        <Route path="/" exact element={<UploadForm />} />
+        <Route path="/" exact element={<Home />} />
 
         <Route path="/uploadForm" element={<UploadForm />} />
 

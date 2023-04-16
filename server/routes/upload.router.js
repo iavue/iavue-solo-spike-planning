@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-// add multer middleware here so it can handle the file upload
+// require multer middleware here so it can handle the file upload from client to server
+    // parses the form-data format so we can access the file and extracts the data
 const multer = require('multer');
 
 // we need to specify a destination to where the files will be stored, which is the 'uploads' folder
@@ -16,18 +17,19 @@ const storage = multer.diskStorage({
     }
 })
 
-// telling multer to upload a single file from the <input> name 'file' and then 
+// telling multer to upload one file from the <input> name 'file' and then 
     // store it in the storage which is the 'uploads/' folder
 const upload = multer({ storage }).single('file');
 
 
 router.post('/', (req,res) => {
     console.log('req.file:', req.file);
-    // use the upload middleware to handle the file upload
+    // use the upload middleware to handle where and how the file should be stored
     upload(req, res, (err) => {
         if (err) {
             return res.status(500).json(err)
         }
+        // send the file to client
         return res.status(200).send(req.file)
     })
    
