@@ -1,6 +1,6 @@
 import React from 'react';
 // import './App.css';
-import { HashRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
 import UploadForm from './components/UploadForm/UploadForm';
 import UploadList from './components/UploadList/UploadList';
@@ -16,7 +16,9 @@ function App() {
           <h2>File Upload</h2>
         </header>
 
-        <nav>
+        <UploadForm />
+
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -28,10 +30,10 @@ function App() {
               <Link to="/uploadList">All Files</Link>
             </li>
           </ul>
-        </nav>
-
+        </nav> */}
+        
         {/* Element specifies the component to render when the url path matches "path" */}
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<UploadForm />} />
 
         <Route path="/uploadForm" element={<UploadForm />} />
 
